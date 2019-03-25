@@ -9,7 +9,7 @@ jobs:
           python3.6 -m venv venv
           source ./venv/bin/activate
           pip install django
-          cd apps
+          cd proj
           # migration
           python manage.py migrate
           # django test
