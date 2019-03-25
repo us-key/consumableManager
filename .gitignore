@@ -1,2 +1,3 @@
 venv
-apps/db.sqlite3
+proj/db.sqlite3
+proj/proj/__pycache__
