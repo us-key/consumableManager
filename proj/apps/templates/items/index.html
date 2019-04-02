@@ -1,0 +1,7 @@
+{% if item_list %}
+    {% for item in item_list%}
+        <li><a href="/apps/items/{{ item.id }}">{{ item.id }}/{{ item.name }}</a></li>
+    {% endfor %}
+{% else %}
+    <p>no items registered.</p>
+{% endif %}
