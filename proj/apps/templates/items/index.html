@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a href="/apps/items/new">create new item</a>
 {% if item_list %}
     {% for item in item_list%}
         <li><a href="/apps/items/{{ item.id }}">{{ item.id }}/{{ item.name }}</a></li>
@@ -5,3 +9,5 @@
 {% else %}
     <p>no items registered.</p>
 {% endif %}
+
+{% endblock %}

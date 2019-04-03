@@ -5,6 +5,8 @@ from . import views
 app_name = 'apps'
 urlpatterns = [
     # Item
+    path('', views.ItemIndexView.as_view(), name='index'),
     path('items/', views.ItemIndexView.as_view(), name='index'),
     path('items/<int:pk>/', views.ItemDetailView.as_view(), name='detail'),
+    path('items/new/', views.item_create, name='item_new'),
 ]

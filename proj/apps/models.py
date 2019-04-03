@@ -31,6 +31,10 @@ class Item(models.Model):
         blank=True,
         null=True
     )
+    user_id = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+    )
 
 class ItemPurchaseHistory(models.Model):
     """商品購入履歴
