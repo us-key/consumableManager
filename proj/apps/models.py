@@ -18,22 +18,39 @@ class Item(models.Model):
     name = models.CharField(
         max_length=255,
         blank=False,
-        null=False
+        null=False,
     )
-    image_name = models.CharField(
+    image_url = models.CharField(
         max_length=255,
         blank=True,
-        null=True
+        null=True,
     )
     amazon_id = models.ForeignKey(
         AmazonItem,
         on_delete=models.SET_NULL,
         blank=True,
-        null=True
+        null=True,
     )
     user_id = models.ForeignKey(
         User,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+    )
+    purchase_count = models.PositiveSmallIntegerField(
+        blank=False,
+        null=False,
+        default=0,
+    )
+    last_purchase_date = models.DateField(
+        blank=True,
+        null=True,
+    )
+    average_purchase_interval = models.PositiveSmallIntegerField(
+        blank=True,
+        null=True,
+    )
+    next_purchase_date = models.DateField(
+        blank=True,
+        null=True,
     )
 
 class ItemPurchaseHistory(models.Model):
@@ -42,13 +59,13 @@ class ItemPurchaseHistory(models.Model):
     """
     item_id = models.ForeignKey(
         Item,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
     history_no = models.PositiveSmallIntegerField(
         blank=False,
-        null=False
+        null=False,
     )
     purchase_date = models.DateField(
         blank=False,
-        null=False
+        null=False,
     )

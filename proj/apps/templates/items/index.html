@@ -4,7 +4,20 @@
 <a href="/apps/items/new">create new item</a>
 {% if item_list %}
     {% for item in item_list%}
-        <li><a href="/apps/items/{{ item.id }}">{{ item.id }}/{{ item.name }}</a></li>
+        <li>
+            <a href="/apps/items/{{ item.id }}/">
+            {{ item.id }}
+            /{{ item.name }}
+            /{{ item.user_id }}
+            /{{ item.purchase_count }}
+            /{{ item.last_purchase_date }}
+            /{{ item.average_purchase_interval }}
+            /{{ item.next_purchase_date }}
+            </a>
+            <a href="/apps/items/{{ item.id}}/purchase/">
+                [purchase]
+            </a>
+        </li>
     {% endfor %}
 {% else %}
     <p>no items registered.</p>
