@@ -3,22 +3,36 @@
 
 <a href="/apps/items/new">create new item</a>
 {% if item_list %}
-    {% for item in item_list%}
-        <li>
-            <a href="/apps/items/{{ item.id }}/">
-            {{ item.id }}
-            /{{ item.name }}
-            /{{ item.user_id }}
-            /{{ item.purchase_count }}
-            /{{ item.last_purchase_date }}
-            /{{ item.average_purchase_interval }}
-            /{{ item.next_purchase_date }}
-            </a>
-            <a href="/apps/items/{{ item.id}}/purchase/">
-                [purchase]
-            </a>
-        </li>
-    {% endfor %}
+    <table class="table">
+        <thead>
+            <th></th>
+            <th>name</th>
+            <th>purchase count</th>
+            <th>last purchased</th>
+            <th>purchase interval</th>
+            <th>next puchase</th>
+        </thead>
+        <tbody>
+        {% for item in item_list%}
+            <tr>
+                <td>
+                    <a href="/apps/items/{{ item.id}}/purchase/">
+                        [purchase]
+                    </a>
+                </td>
+                <td>
+                    <a href="/apps/items/{{ item.id }}/">
+                        {{ item.name }}
+                    </a>
+                </td>
+                <td>{{ item.purchase_count }}</td>
+                <td>{{ item.last_purchase_date }}</td>
+                <td>{{ item.average_purchase_interval }}</td>
+                <td>{{ item.next_purchase_date }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% else %}
     <p>no items registered.</p>
 {% endif %}
